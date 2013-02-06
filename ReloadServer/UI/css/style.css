@@ -7,6 +7,11 @@ iframe {
     height: 100%;
 }
 
+input#project-name,
+input#workspace-path {
+    width: 90%;
+}
+
 #bar-left ul {
     list-style: none;
     margin: 0;
@@ -29,7 +34,16 @@ iframe {
 #banner #banner-message {
     height: 40px;
     padding: 10px;
-    display: none;
+}
+#banner #banner-message  {
+    float: left;
+}
+#server-ip {
+    float: left;
+}
+
+#server-info {
+    float: right;
 }
 
 #banner #mosync-logo {
@@ -135,13 +149,12 @@ iframe {
 
 #main-content #content-nav {
     border-top: 1px solid #fff;
-    height: 49px;
     position: absolute;
     top: 0;
 }
 
 #main-content #content-nav ul {
-    padding-top: 10px;
+    padding-top: 11px;
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 0;
@@ -154,7 +167,7 @@ iframe {
 #main-content #content {
     position: absolute;
     background: #fff;
-    top: 51px;
+    top: 52px;
     bottom: 41px;
     overflow: auto;
 }
@@ -336,6 +349,9 @@ ul#projects li a.select-project {
 }
 #bar-left-foot .inner {
     border-top: 1px solid rgb(224, 229, 234);
+}
+#bar-left-foot ul li{
+    display: block;
 }
 
 .dl-horizontal dt {

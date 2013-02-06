@@ -63,6 +63,9 @@ define([
 
         render: function () {
             this.$el.modal('show');
+            this.$el.on('shown', function () {
+                $('#workspace-path').focus();
+            });
         }
 
     });

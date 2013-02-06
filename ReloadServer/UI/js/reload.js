@@ -2,15 +2,12 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'router'
-], function ($, _, Backbone, Router) {
+    'router',
+    'views/index/serverip',
+    'views/index/serverinfo'
+], function ($, _, Backbone, Router, ServerIpView, ServerInfoView) {
 
     var initialize = function () {
-
-        // Display compatibility issues warning.
-        if (!$.browser.webkit) {
-                $('#banner-message').show();
-        }
 
         // Setup Backbone to send RPC messages.
         var rpc = {
@@ -44,6 +41,13 @@ define([
                 options.error("Record not found");
             }
         };
+
+        // Things to show in the top bar.
+        var serverIpView = new ServerIpView();
+        serverIpView.render();
+
+        var serverInfoView = new ServerInfoView();
+        serverInfoView.render();
 
         // Pass in our Router module and call it's initialize function
         Router.initialize();

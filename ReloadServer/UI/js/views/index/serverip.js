@@ -20,11 +20,11 @@ define([
             var compiledTemplate = _.template( serverIpTemplate, {
                 ip: this.model.get('ip')
             });
-            $('#server-ip').html( this.$el.html( compiledTemplate ) );
+            this.$el.html( compiledTemplate );
+            $('#server-ip').html( this.$el );
         }
     });
 
     return ServerIpView;
 });
-
 

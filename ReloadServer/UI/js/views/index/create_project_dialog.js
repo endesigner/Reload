@@ -84,6 +84,9 @@ define([
         render: function () {
             this.delegateEvents();
             this.$el.modal('show');
+            this.$el.on('shown', function () {
+                $('#project-name').focus();
+            });
         }
 
     });

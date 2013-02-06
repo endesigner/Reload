@@ -43,7 +43,8 @@ define([
             this.model = new DevicesModel();
         },
 
-        openDialog: function () {
+        openDialog: function (e) {
+            e.preventDefault();
             var deviceListDialog = new DeviceListDialog( {devices: this.devices} );
             deviceListDialog.render();
         },
@@ -88,7 +89,6 @@ define([
             this.parent.deviceCount = 0;
 
             if (this.devices.length === 0) {
-                console.log('no connected');
                 this.$el.html( '<center>No clients connected.</center>' );
             } else {
                 var s = (this.devices.length > 1)? 's' : '';
@@ -96,9 +96,16 @@ define([
                     count: this.devices.length,
                     s: s
                 });
-                this.$el.html( compiledTemplate );
+                var compiledTemplate = $(compiledTemplate);
+
+                var list = $('<ul>');
+                _(this.devices).each(function(d) {
+                    list.append('<li>' +d.platform+ ' ' + d.version + ' (' + d.name + ')</li>');
+                });
+                compiledTemplate.append(list);
 
                 this.parent.deviceCount = this.devices.length;
+                this.$el.html( compiledTemplate );
             }
         }
     });

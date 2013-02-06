@@ -2,11 +2,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/index/serverip',
-    'views/index/serverinfo',
     'views/devices/main',
     'text!../../../templates/index/sidebar_left_foot.html'
-], function($, _, Backbone, ServerIpView, ServerInfoView, DevicesView, template){
+], function($, _, Backbone, DevicesView, template){
 
     var SidebarLeftFootView = Backbone.View.extend({
 
@@ -17,12 +15,6 @@ define([
         },
 
         render: function () {
-
-            var serverIpView = new ServerIpView();
-            serverIpView.render();
-
-            var serverInfoView = new ServerInfoView();
-            serverInfoView.render();
 
             var devicesView = new DevicesView( {parent: this.parent} );
             var compiledTemplate = _.template( template, {} );
